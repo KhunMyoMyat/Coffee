@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "titleFont";
+  src: url(./fonts/Demo_Fonts/Fontspring-DEMO-rocgrotesk-extrabold.otf);
+}
+
+@font-face {
+  font-family: "bodyFont";
+  src: url(./fonts/DM_Sans/DMSans-Italic-VariableFont_opsz\wght.ttf);
+}
+
+@theme {
+  --font-title: "titleFont";
+  --font-body: "bodyFont";
+}
