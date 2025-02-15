@@ -13,4 +13,33 @@
 @theme {
   --font-title: "titleFont";
   --font-body: "bodyFont";
+  --color-pink: #f4ece8;
+  --color-orange: #c06522;
+  --color-cyan: #006764;
+  --color-coffee: #140e13;
+}
+
+* {
+  @apply transition-all duration-500;
+}
+
+/* nav */
+nav {
+  @apply py-4 fixed top-0 right-0 left-0 font-bold;
+}
+
+nav #toggle {
+  @apply block h-10 md:hidden;
+}
+
+nav #menu {
+  @apply bg-white md:bg-transparent absolute md:static top-full left-0 right-0 px-10 py-4 md:block;
+}
+
+nav ul li {
+  @apply md:inline-block mb-4 md:mb-0;
+}
+
+nav ul li a {
+  @apply block px-4 py-2 rounded-xl uppercase font-bold border-2 border-transparent hover:border-orange;
 }

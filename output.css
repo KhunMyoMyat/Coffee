@@ -7,7 +7,10 @@
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
       "Liberation Mono", "Courier New", monospace;
     --color-red-500: oklch(0.637 0.237 25.331);
+    --color-white: #fff;
     --spacing: 0.25rem;
+    --font-weight-bold: 700;
+    --radius-xl: 0.75rem;
     --ease-in: cubic-bezier(0.4, 0, 1, 1);
     --ease-out: cubic-bezier(0, 0, 0.2, 1);
     --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
@@ -25,6 +28,9 @@
     --default-mono-font-variation-settings: var(
       --font-mono--font-variation-settings
     );
+    --color-pink: #f4ece8;
+    --color-orange: #c06522;
+    --color-cyan: #006764;
   }
 }
 @layer base {
@@ -346,6 +352,9 @@
   .m-1 {
     margin: calc(var(--spacing) * 1);
   }
+  .mx-auto {
+    margin-inline: auto;
+  }
   .box-border {
     box-sizing: border-box;
   }
@@ -433,6 +442,18 @@
   .aspect-square {
     aspect-ratio: 1 / 1;
   }
+  .h-16 {
+    height: calc(var(--spacing) * 16);
+  }
+  .h-20 {
+    height: calc(var(--spacing) * 20);
+  }
+  .h-\[300vh\] {
+    height: 300vh;
+  }
+  .h-full {
+    height: 100%;
+  }
   .h-screen {
     height: 100vh;
   }
@@ -444,6 +465,9 @@
   }
   .min-h-screen {
     min-height: 100vh;
+  }
+  .w-1 {
+    width: calc(var(--spacing) * 1);
   }
   .w-1\/2 {
     width: calc(1/2 * 100%);
@@ -1055,6 +1079,9 @@
     --tw-border-style: solid;
     border-style: solid;
   }
+  .border-orange {
+    border-color: var(--color-orange);
+  }
   .bg-\(--my_variable\) {
     background-color: var(--my_variable);
   }
@@ -1069,6 +1096,12 @@
   }
   .bg-\[var\(--my_variable\)\] {
     background-color: var(--my_variable);
+  }
+  .bg-orange {
+    background-color: var(--color-orange);
+  }
+  .bg-pink {
+    background-color: var(--color-pink);
   }
   .bg-red-500 {
     background-color: var(--color-red-500);
@@ -1199,6 +1232,12 @@
   }
   .fill-none {
     fill: none;
+  }
+  .fill-orange {
+    fill: var(--color-orange);
+  }
+  .fill-white {
+    fill: var(--color-white);
   }
   .stroke-none {
     stroke: none;
@@ -1810,6 +1849,95 @@
   .transform-view {
     transform-box: view-box;
   }
+  .hover\:border-cyan {
+    &:hover {
+      @media (hover: hover) {
+        border-color: var(--color-cyan);
+      }
+    }
+  }
+  .hover\:bg-cyan {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-cyan);
+      }
+    }
+  }
+}
+@font-face {
+  font-family: "titleFont";
+  src: url(./fonts/Demo_Fonts/Fontspring-DEMO-rocgrotesk-extrabold.otf);
+}
+@font-face {
+  font-family: "bodyFont";
+  src: url(./fonts/DM_Sans/DMSans-VariableFont_opsz\wght.ttf);
+}
+* {
+  transition-property: all;
+  transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+  transition-duration: var(--tw-duration, var(--default-transition-duration));
+  --tw-duration: 500ms;
+  transition-duration: 500ms;
+}
+nav {
+  position: fixed;
+  top: calc(var(--spacing) * 0);
+  right: calc(var(--spacing) * 0);
+  left: calc(var(--spacing) * 0);
+  padding-block: calc(var(--spacing) * 4);
+  --tw-font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-bold);
+}
+nav #toggle {
+  display: block;
+  height: calc(var(--spacing) * 10);
+  @media (width >= 48rem) {
+    display: none;
+  }
+}
+nav #menu {
+  position: absolute;
+  top: 100%;
+  right: calc(var(--spacing) * 0);
+  left: calc(var(--spacing) * 0);
+  background-color: var(--color-white);
+  padding-inline: calc(var(--spacing) * 10);
+  padding-block: calc(var(--spacing) * 4);
+  @media (width >= 48rem) {
+    position: static;
+  }
+  @media (width >= 48rem) {
+    display: block;
+  }
+  @media (width >= 48rem) {
+    background-color: transparent;
+  }
+}
+nav ul li {
+  margin-bottom: calc(var(--spacing) * 4);
+  @media (width >= 48rem) {
+    margin-bottom: calc(var(--spacing) * 0);
+  }
+  @media (width >= 48rem) {
+    display: inline-block;
+  }
+}
+nav ul li a {
+  display: block;
+  border-radius: var(--radius-xl);
+  border-style: var(--tw-border-style);
+  border-width: 2px;
+  border-color: transparent;
+  padding-inline: calc(var(--spacing) * 4);
+  padding-block: calc(var(--spacing) * 2);
+  --tw-font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  &:hover {
+    @media (hover: hover) {
+      border-color: var(--color-orange);
+    }
+  }
 }
 @property --tw-translate-x {
   syntax: "*";
@@ -2085,6 +2213,10 @@
   inherits: false;
 }
 @property --tw-duration {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-font-weight {
   syntax: "*";
   inherits: false;
 }
